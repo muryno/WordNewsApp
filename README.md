@@ -1,5 +1,4 @@
-# Performance Information App
-A sample android app that shows how to use MVVM pattern and various libraries in Kotlin by Clean Architecture.
+# World News App
 
 
 
@@ -12,17 +11,23 @@ A sample android app that shows how to use MVVM pattern and various libraries in
 * [DataBinding](https://developer.android.com/topic/libraries/data-binding) (Jetpack)
 * [Room](https://developer.android.com/jetpack/androidx/releases/room) (Jetpack)
 * [Navigation](https://developer.android.com/guide/navigation) (Jetpack)
-* [Paging library](https://developer.android.com/topic/libraries/architecture/paging) (Jetpack)
-* [Koin](https://insert-koin.io/docs/2.0/documentation/koin-android/index.html)
+* [Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
 * [Retrofit2](https://square.github.io/retrofit/)
 * [Glide](https://github.com/bumptech/glide)
-
-* [UNIT TEST](https://github.com/bumptech/glide)
+* [Coroutine](https://developer.android.com/kotlin/coroutines?)
+* [UNIT TEST](https://developer.android.com/training/testing/unit-testing)
 * [ESPRESSO](https://github.com/bumptech/glide)
-* Using Weight watcher public  API in
+* Using  https://newsapi.org/  public  API 
 
 
 ### Features
-* Show weight watcher products in a list
-* Show details of the products
-* Add to cart
+* Has two tab to nvigate bewteen latest news and favourite news
+* Show current date and time
+* Display latest news
+* Fab button to save favourite news locally
+* Button automatically hide when added to favourite
+* Button features switch base on item clicked
+* dark mode implemented
+* Display favourite news
+
+
