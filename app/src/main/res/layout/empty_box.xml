@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <layout>
     <data>
         <import type="android.view.View" />
@@ -8,6 +7,8 @@
             name="viewModel"
             type="com.worldNews.app.presenter.viewModel.WorldNewsViewModel" />
     </data>
+
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -18,11 +19,11 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/emptyImage"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="100dp"
-
-        android:contentDescription="@string/weight_watcher"
-        tools:srcCompat="@drawable/blank" />
+        android:src="@drawable/empty_news"
+        android:contentDescription="@string/empty_news"
+        tools:srcCompat="@drawable/empty_news" />
 
     <androidx.appcompat.widget.AppCompatTextView
 
@@ -31,18 +32,23 @@
         android:layout_gravity="center"
         android:layout_margin="10dp"
         android:gravity="center"
-        android:text="@string/ooops_n_weight_watcher_list_not_available"
+        android:foregroundGravity="center"
+        android:text="@string/ooops_n_favourite_news_is_empty"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/refresh"
+    <androidx.appcompat.widget.AppCompatTextView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:text="@string/refresh"
-        android:onClick="@{()->viewModel.onCreate()}"
-        android:textColor="@color/cardview_light_background" />
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:foregroundGravity="center"
+        android:text="@string/click_the_button_on_details_screen_to_add_remove"
+
+        />
+
 </LinearLayout>
 </layout>

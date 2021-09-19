@@ -10,4 +10,7 @@
     <string name="newsimage">NewsImage</string>
     <string name="favourite_news">Favourite News</string>
     <string name="latest_news">Latest News</string>
+    <string name="ooops_n_favourite_news_is_empty">Ooops!!!\n Favourite news is empty</string>
+    <string name="click_the_button_on_details_screen_to_add_remove">Click the button on details screen to add/remove</string>
+    <string name="empty_news">Empty news</string>
 </resources>

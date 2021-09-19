@@ -10,11 +10,14 @@ import android.widget.TextView
 import androidx.annotation.Nullable
 import androidx.databinding.BindingAdapter
 import androidx.databinding.BindingConversion
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.worldNews.app.R
 import com.worldNews.app.data.model.Article
+import com.worldNews.app.presenter.viewModel.FavouriteWorldNewsViewModel
 import com.worldNews.app.presenter.viewModel.WorldNewsViewModel
 
 @BindingAdapter("imagePaths", "pathError", "imageOption")
@@ -38,9 +41,9 @@ fun loadImage(imageView: ImageView, @Nullable path:String?, errorDrawable: Drawa
 
 
 @BindingAdapter("addTextChangeListener")
-fun addTextChangeListener(view: SearchView, @Nullable modelItemCarbon: WorldNewsViewModel?) {
+fun addTextChangeListener(view: SearchView, @Nullable favouriteWorldNewsViewModel: FavouriteWorldNewsViewModel?) {
 
-    view?.setOnQueryTextListener(
+    view.setOnQueryTextListener(
         object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 return false
@@ -48,20 +51,20 @@ fun addTextChangeListener(view: SearchView, @Nullable modelItemCarbon: WorldNews
 
             override fun onQueryTextChange(p0: String?): Boolean {
                 if (p0?.isNotEmpty() == true)
-                    modelItemCarbon?. worldNewsItem?.filter {
-                        it.title?.lowercase()?.contains(p0.lowercase()) == true
-                    }.let { tt ->
-                        modelItemCarbon?.  adapter?.differ?.submitList(tt)
-                        // showEmptyView(tt.isEmpty())
-                    }
+                    favouriteWorldNewsViewModel?.apply {
+                        article.filter { it.title?.lowercase()?.contains(p0.lowercase()) == true }
+                            .let { tt -> adapter.differ.submitList(tt)
+                            showEmptyView(article.isEmpty())
+                    } }
                 else
-                    modelItemCarbon?.getWorldNews("us")
+                    favouriteWorldNewsViewModel?.initiateView()
                 return false
             }
         }
     )
-    view?.setOnCloseListener {
-        modelItemCarbon?.onCreate()
+
+    view.setOnCloseListener {
+        favouriteWorldNewsViewModel?.initiateView()
         false
     }
 

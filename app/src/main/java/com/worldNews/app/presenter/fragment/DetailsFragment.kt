@@ -19,7 +19,6 @@ class DetailsFragment : Fragment() {
 
     val favouriteWorldNewsViewModel by viewModels<FavouriteWorldNewsViewModel>()
 
-    lateinit var nav : NavDirections
     var binding: FragmentDetailsBinding? = null
     private val args: DetailsFragmentArgs by navArgs()
 
@@ -27,27 +26,14 @@ class DetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         binding = FragmentDetailsBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = this@DetailsFragment
             worldNewsArticleModelItem = args.article
             viewModel = favouriteWorldNewsViewModel
-            backBtn.setOnClickListener {
-
-                nav = if (args.article.isFavourite){
-                    //navigate to favourite
-                    DetailsFragmentDirections.actionDetailsFragmentToFavouriteFragment()
-                }else{
-                    //navigate to home fragment
-                    DetailsFragmentDirections.actionDetailsFragmentToHomeFragment()
-                }
-
-                this@DetailsFragment.safeNavigateFromNavController(nav)
-            }
-
-
+            detailsFragment =   this@DetailsFragment
         }
-
 
         return binding?.root
     }

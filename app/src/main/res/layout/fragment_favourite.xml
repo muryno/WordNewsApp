@@ -16,36 +16,33 @@
         android:layout_height="match_parent"
         tools:context=".presenter.MainActivity">
 
-        <!--       -->
-<!--        <SearchView-->
-<!--            android:id="@+id/edit_search"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:background="@drawable/rounded_search_corner"-->
-<!--            android:queryHint="Search for products"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:addTextChangeListener="@{viewModel}"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <SearchView
+            android:id="@+id/favourite_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_search_corner"
+            android:queryHint="Search for products"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:addTextChangeListener="@{viewModel}"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cww_recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="5dp"
+            android:layout_height="wrap_content"
             app:adapter="@{viewModel.adapter}"
+            android:padding="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-
+            app:layout_constraintTop_toBottomOf="@id/favourite_search"
             android:layoutAnimation="@anim/layout_animation"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-
-            app:spanCount="1"
-
-            />
+            app:spanCount="1" />
 
 
 
@@ -53,9 +50,7 @@
                 <include
                     android:id="@+id/empty_state"
                     android:visibility="@{viewModel.emptyState==true  ?View.VISIBLE : View.GONE}"
-
-
-                     layout="@layout/empty_box"
+                    layout="@layout/empty_box"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layout_constraintBottom_toBottomOf="parent"
