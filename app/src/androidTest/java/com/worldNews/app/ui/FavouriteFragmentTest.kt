@@ -27,19 +27,9 @@ import org.junit.runner.RunWith
 @ExperimentalCoroutinesApi
 @HiltAndroidTest
 @RunWith(AndroidJUnit4::class)
-class HomeFragmentTest: BaseUnitAndroidTest() {
+class FavouriteFragmentTest: BaseUnitAndroidTest() {
 
     private val navController = TestNavHostController(ApplicationProvider.getApplicationContext())
-
-
-    @Test
-    fun displayScreenTitle() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.worldNews.app", appContext.packageName)
-    }
-
-
 
 
     @Test

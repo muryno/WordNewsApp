@@ -1,8 +1,8 @@
 package com.worldNews.app.dataModuleTest
 
+import com.google.common.truth.Truth.assertThat
 import com.worldNews.app.data.api.WorldNewsService
 import com.worldNews.app.utils.BaseUnitTest
-import com.google.common.truth.Truth.assertThat
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
@@ -38,7 +38,7 @@ class WorldNewsRemoteDataSourceImpTest : BaseUnitTest() {
         val source = inputStream?.source()?.buffer()
 
         val mockResponse = MockResponse()
-        mockResponse.setBody(source!!.readString(Charsets.UTF_8))
+        mockResponse.setBody(source?.readString(Charsets.UTF_8).toString())
         mockWebServer.enqueue(mockResponse)
     }
 
@@ -46,25 +46,22 @@ class WorldNewsRemoteDataSourceImpTest : BaseUnitTest() {
     @Test
     fun checkFakeResponseList() {
         runBlocking {
-            enqueueMockUpResponse("ww_posts.json")
+            enqueueMockUpResponse("wn_posts.json")
             val respose = worldNewsAPIService.getWorldNewsApi("us").body()
             val predefineResponse = mockWebServer.takeRequest()
             assertThat(respose).isNotNull()
-            assertThat(predefineResponse.path).isEqualTo("/assets/cmx/us/messages/collections.json")
+            assertThat(predefineResponse.path).isEqualTo("/top-headlines?country=us&apiKey=66e93c8c73034ae7beed54f08e915c47")
         }
     }
 
 
     @Test
-    fun getWeightWatcherFakeResponse() {
+    fun getWorldNewsResponse() {
         runBlocking {
-
-            enqueueMockUpResponse("ww_posts.json")
-
+            enqueueMockUpResponse("wn_posts.json")
             val respose = worldNewsAPIService.getWorldNewsApi("us").body()
             assertThat(respose).isNotNull()
-          //  assertThat(respose?.get(0)?.title).isEqualTo("Summer Grilling")
-
+             assertThat(respose?.articles?.get(0)?.author).isEqualTo("TMZ Staff")
         }
     }
 

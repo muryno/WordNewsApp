@@ -144,8 +144,7 @@ dependencies {
     def androidx_test_ext = "1.1.1"
     androidTestImplementation "androidx.test.ext:junit-ktx:$androidx_test_ext"
 
-    // EventEmitter (one-off events)
-    implementation 'com.github.Zhuinden:event-emitter:1.1.0'
+
 
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'

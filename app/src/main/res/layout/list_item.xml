@@ -33,7 +33,7 @@
                     android:layout_weight="0.5"
                     android:scaleType="fitStart"
                     android:background="@drawable/image_rounded"
-                    android:contentDescription="@string/weight_watcher"
+                    android:contentDescription="@string/global_news"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <LinearLayout
@@ -49,7 +49,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:text="@string/textview"
-                        android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 

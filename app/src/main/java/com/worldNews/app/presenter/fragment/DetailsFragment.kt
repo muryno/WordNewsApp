@@ -6,13 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavDirections
 import androidx.navigation.fragment.navArgs
 import com.worldNews.app.databinding.FragmentDetailsBinding
 import com.worldNews.app.presenter.viewModel.FavouriteWorldNewsViewModel
-import com.worldNews.app.utils.safeNavigateFromNavController
 import dagger.hilt.android.AndroidEntryPoint
-import java.lang.Exception
 
 @AndroidEntryPoint
 class DetailsFragment : Fragment() {
@@ -33,6 +30,7 @@ class DetailsFragment : Fragment() {
             worldNewsArticleModelItem = args.article
             viewModel = favouriteWorldNewsViewModel
             detailsFragment =   this@DetailsFragment
+
         }
 
         return binding?.root

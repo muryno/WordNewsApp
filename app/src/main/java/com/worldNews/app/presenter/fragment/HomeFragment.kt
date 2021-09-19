@@ -23,8 +23,10 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false).apply {
             viewModel = carbonWeightWatcherViewModel
             lifecycleOwner = this@HomeFragment
+            emptyState.viewModel = carbonWeightWatcherViewModel
         }
-        carbonWeightWatcherViewModel.onCreate()
+
         return binding.root
     }
+
 }

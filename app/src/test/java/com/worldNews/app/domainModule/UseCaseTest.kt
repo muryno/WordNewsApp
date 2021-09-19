@@ -1,13 +1,13 @@
 package com.worldNews.app.domainModule
 
 
+import com.google.common.truth.Truth.assertThat
 import com.worldNews.app.FakeCarbonWeightWatcherData
+import com.worldNews.app.data.model.Article
 import com.worldNews.app.data.util.Resource
 import com.worldNews.app.domain.UseCase.GetWorldNewsUseCase
 import com.worldNews.app.domain.repository.WorldNewsRepository
 import com.worldNews.app.utils.BaseUnitTest
-import com.google.common.truth.Truth.assertThat
-import com.worldNews.app.data.model.Article
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.count
@@ -24,7 +24,7 @@ class UseCaseTest : BaseUnitTest() {
     private lateinit var weightWaterRepository: WorldNewsRepository
     private lateinit var getWorldNewsUseCase: GetWorldNewsUseCase
 
-    private var weightWatcherModelItem = FakeCarbonWeightWatcherData.carbonWeightWatcher
+    private var weightWatcherModelItem = FakeCarbonWeightWatcherData.fakeArticleResponse
 
     @Before
     fun setUp() {
@@ -33,7 +33,7 @@ class UseCaseTest : BaseUnitTest() {
     }
 
     @Test
-    fun executeCarbonWeightWatcherFromApiCaseNotEqualNullTest() = runBlocking {
+    fun executeGetWorldNewsNotEqualNullTest() = runBlocking {
         Mockito.`when`(weightWaterRepository.getWorldNews("us")).thenReturn(
             Resource.Success(
                 weightWatcherModelItem
@@ -47,7 +47,7 @@ class UseCaseTest : BaseUnitTest() {
 
 
     @Test
-    fun executeCarbonWeightWatcherFromCacheCaseNotEqualNullTest() = runBlocking {
+    fun executeGetWorldNewsFromCacheCaseNotEqualNullTest() = runBlocking {
         Mockito.`when`(weightWaterRepository.getWorldNewsFromCache()).thenReturn(
             flow {
                 emit(weightWatcherModelItem)
@@ -60,5 +60,23 @@ class UseCaseTest : BaseUnitTest() {
         )
     }
 
+    @Test
+    fun executeSaveWorldNewsToCacheTest() = runBlocking {
+        Mockito.`when`(weightWaterRepository.saveWorldNewsToCache(weightWatcherModelItem[0])).thenReturn(Unit)
+        val response: Unit = weightWaterRepository.saveWorldNewsToCache(weightWatcherModelItem[0])
+        assertThat(response).isNotNull()
+    }
 
+    @Test
+    fun executeDeleteFavouriteWorldNewsFromCacheTest() = runBlocking {
+
+        val article : Article = weightWatcherModelItem[0]
+        Mockito.`when`(weightWaterRepository.deleteFavouriteWorldNewsFromCache(title = article.title.toString(),publishedAt =
+        article.publishedAt.toString()
+        )).thenReturn(Unit)
+        val response: Unit = weightWaterRepository.deleteFavouriteWorldNewsFromCache(title = article.title.toString(),publishedAt =
+        article.publishedAt.toString()
+        )
+        assertThat(response).isNotNull()
+    }
 }

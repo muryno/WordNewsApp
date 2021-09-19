@@ -1,21 +1,14 @@
 package com.worldNews.app.presenter.viewModel
 
-import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import com.worldNews.app.App
 import com.worldNews.app.data.model.Article
-import com.worldNews.app.data.util.Resource
 import com.worldNews.app.domain.UseCase.GetWorldNewsUseCase
 import com.worldNews.app.presenter.adapter.FavouriteWorldNewsAdapter
-import com.worldNews.app.presenter.adapter.WorldNewsAdapter
-import com.worldNews.app.presenter.di.ToastHelper
-import com.worldNews.app.presenter.fragment.DetailsFragment
 import com.worldNews.app.presenter.fragment.DetailsFragmentDirections
-import com.worldNews.app.utils.NetworkAvailabilityCheckUtils
+import com.worldNews.app.utils.ShowToast
 import com.worldNews.app.utils.safeNavigateFromNavController
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
@@ -25,9 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class FavouriteWorldNewsViewModel @Inject constructor(
     private val getWorldNewsUseCase: GetWorldNewsUseCase,
-    private val toastHelper: ToastHelper,
-
-) : ViewModel() {
+    ) : ViewModel() {
 
     @Inject
     lateinit var adapter: FavouriteWorldNewsAdapter
@@ -37,6 +28,11 @@ class FavouriteWorldNewsViewModel @Inject constructor(
     //show empty state
     private val _emptyState: MutableLiveData<Boolean> = MutableLiveData()
     val emptyState: LiveData<Boolean> = _emptyState
+
+
+    //hide fab button when  clicked
+    private val _hideFab: MutableLiveData<Boolean> = MutableLiveData()
+    val hideFab: LiveData<Boolean> = _hideFab
 
 
     private var viewModelJob = Job()
@@ -56,16 +52,19 @@ class FavouriteWorldNewsViewModel @Inject constructor(
                 }
             }
         }
+
+        _hideFab.value = false
     }
 
 
     fun addFavourite(article: Article){
-        coroutineScope.launch {
+      coroutineScope.launch {
             //this shows it is favourite
             article.isFavourite = true
             getWorldNewsUseCase.saveFavouriteWorldNews(article)
         }
-        toastHelper.sendToast("News Added to Favourite")
+        ShowToast("News Added to Favourite")
+        _hideFab.value = true
     }
 
 
@@ -73,13 +72,12 @@ class FavouriteWorldNewsViewModel @Inject constructor(
         coroutineScope.launch {
             getWorldNewsUseCase.deleteFavouriteWorldNewsByTitleAndDate(title = article.title?:"",publishedAt = article.publishedAt?:"")
         }
-        toastHelper.sendToast("${article.title} delete from your Favourite")
+        ShowToast("${article.title} delete from your Favourite")
         navigateBackHome(article =  article,view = view)
     }
 
 
-
-
+    //for detail screen to navigate back
     fun navigateBackHome(article: Article,view: Fragment){
 
         val nav = if (article.isFavourite){

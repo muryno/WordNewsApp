@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
 <layout>
     <data>
         <import type="android.view.View" />
@@ -7,8 +8,6 @@
             name="viewModel"
             type="com.worldNews.app.presenter.viewModel.WorldNewsViewModel" />
     </data>
-
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,35 +18,30 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/emptyImage"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:src="@drawable/empty_news"
-        android:contentDescription="@string/empty_news"
-        tools:srcCompat="@drawable/empty_news" />
+
+        android:contentDescription="@string/global_news"
+        tools:srcCompat="@drawable/blank" />
 
     <androidx.appcompat.widget.AppCompatTextView
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         android:gravity="center"
-        android:foregroundGravity="center"
-        android:text="@string/ooops_n_favourite_news_is_empty"
-        android:textSize="20sp"
+        android:text="@string/unable_to_load_latest_news_n_kindly_refresh"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/refresh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:gravity="center"
-        android:foregroundGravity="center"
-        android:text="@string/click_the_button_on_details_screen_to_add_remove"
-
-        />
-
+        android:background="@color/purple_200"
+        android:text="@string/refresh"
+        android:onClick="@{()->viewModel.refresh()}"
+        android:textColor="@color/cardview_light_background" />
 </LinearLayout>
 </layout>

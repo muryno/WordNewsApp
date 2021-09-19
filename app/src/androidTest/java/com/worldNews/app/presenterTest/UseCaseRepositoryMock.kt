@@ -9,11 +9,9 @@ import kotlinx.coroutines.flow.flow
 
 class UseCaseRepositoryMock : WorldNewsRepository {
 
-
-
     override suspend fun getWorldNews(country: String): Resource<List<Article>>? {
         val dummyData: List<Article> =
-            FakeCarbonWeightWatcherData.carbonWeightWatcher
+            FakeCarbonWeightWatcherData.fakeArticleResponse
 
         return Resource.Success(dummyData)
 
@@ -22,18 +20,14 @@ class UseCaseRepositoryMock : WorldNewsRepository {
     override fun getWorldNewsFromCache(): Flow<List<Article>> {
 
         val dummyData: List<Article> =
-            FakeCarbonWeightWatcherData.carbonWeightWatcher
+            FakeCarbonWeightWatcherData.fakeArticleResponse
 
         return flow {
             emit(dummyData)
         }
     }
 
-    override suspend fun saveWorldNewsToCache(wnLists: Article) {
-        TODO("Not yet implemented")
-    }
+    override suspend fun saveWorldNewsToCache(wnLists: Article) {}
 
-    override suspend fun deleteFavouriteWorldNewsFromCache(title: String, publishedAt: String) {
-        TODO("Not yet implemented")
-    }
+    override suspend fun deleteFavouriteWorldNewsFromCache(title: String, publishedAt: String) {}
 }

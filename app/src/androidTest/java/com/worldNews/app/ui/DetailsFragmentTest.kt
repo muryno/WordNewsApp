@@ -10,6 +10,7 @@ import com.worldNews.app.FakeCarbonWeightWatcherData
 import com.worldNews.app.R
 import com.worldNews.app.data.model.Article
 import com.worldNews.app.presenter.fragment.DetailsFragment
+import com.worldNews.app.presenter.fragment.DetailsFragmentArgs
 import com.worldNews.app.utils.BaseUnitAndroidTest
 import com.worldNews.app.utils.launchFragmentInHiltContainer
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -25,7 +26,7 @@ import org.junit.runner.RunWith
 class DetailsFragmentTest  : BaseUnitAndroidTest() {
 
 
-    private var carbonWeightWatcherItem: Article = FakeCarbonWeightWatcherData.carbonWeightWatcher[0]
+    private var carbonWeightWatcherItem: Article = FakeCarbonWeightWatcherData.fakeArticleResponse[0]
 
     @Before
     fun setupTest() {
@@ -33,16 +34,26 @@ class DetailsFragmentTest  : BaseUnitAndroidTest() {
     }
 
     @Test
-    fun cwwDetailsFragmentTestDisplayedInUi() {
+    fun detailsFragmentTestDisplayedInUi() {
 
-        // WHEN - Details fragment launched to display task
-//        val bundle = DetailsFragmentArgs(carbonWeightWatcherItem).toBundle()
-//        launchFragmentInHiltContainer<DetailsFragment>(bundle, R.style.AppTheme)
-//
-//        Espresso.onView(withId(R.id.imageView_details))
-//            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-//        Espresso.onView(withId(R.id.title_details))
-//            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+         //WHEN - Details fragment launched to display task
+        val bundle = DetailsFragmentArgs(carbonWeightWatcherItem).toBundle()
+        launchFragmentInHiltContainer<DetailsFragment>(bundle, R.style.AppTheme)
+
+        Espresso.onView(withId(R.id.img))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+
+        Espresso.onView(withId(R.id.backBtn))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+
+        Espresso.onView(withId(R.id.details_title))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+
+        Espresso.onView(withId(R.id.details_author))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+
+        Espresso.onView(withId(R.id.details_publish))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
 
         Thread.sleep(3000)
     }

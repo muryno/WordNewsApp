@@ -5,36 +5,56 @@ import com.worldNews.app.data.model.Article
 
 object FakeCarbonWeightWatcherData {
 
-    const val FAKE_NETWORK_DELAY = 1000L
 
-    //"author": "Melissa Healy, Amina Khan",
-    //"title": "Big gap between Pfizer, Moderna vaccines seen for preventing COVID hospitalizations - Yahoo News",
-    //"description": "Moderna's COVID-19 vaccine does a significantly better job of preventing COVID-19 hospitalizations compared with Pfizer's shot.",
-    //"url": "https://news.yahoo.com/big-gap-between-pfizer-moderna-034719881.html",
-    //"urlToImage": "https://s.yimg.com/uu/api/res/1.2/kPI1yr8MMPvvX3bc60FcCg--~B/aD01NjA7dz04NDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/la_times_articles_853/388fea30daa15c751c0ce15aac860846",
-    //"publishedAt": "2021-09-18T04:38:34Z",
-    //"content": "A dose of Pfizer-BioNTech COVID-19 vaccine is readied at a mobile vaccine clinic in Los Angeles. (Irfan Khan / Los Angeles Times) Amid persistent concerns that the protection offered by COVID-19 vac… [+8162 chars]"
-    val carbonWeightWatcher = listOf(
+
+    val fakeArticleResponse = listOf(
+        Article(
+            id = 0,
+            isFavourite = false,
+            author= "Associated Press",
+            title =  "SpaceX tourist trip to orbit ends with splashdown off Florida coast - Fox Business",
+            description =  "Four space tourists safely ended their trailblazing trip to orbit Saturday with a splashdown in the Atlantic off the Florida coast.",
+            url  =  "https://www.foxbusiness.com/technology/spacex-tourist-trip-orbit-splashdown-florida-coast",
+            urlToImage  =  "https://a57.foxnews.com/live.foxnews.com/60b090de5e744bd584c758dc700f7803/us-east-1/694940094001/0/0/playlist.m3u8?ve=1&tl=1",
+            publishedAt = "2021-09-19T07:10:12Z",
+            content = "CAPE CANAVERAL, Fla. — Four space tourists safely ended their trailblazing trip to orbit Saturday with a splashdown in the Atlantic off the Florida coast.\r\nTheir SpaceX capsule parachuted into the oc… [+5576 chars]"
+        ),
         Article(
             id = 1,
-            title = "muraino",
-             description = "http",
-            url = "snacks",
-            publishedAt="publishedAt",
-            content="content",
-            urlToImage="urlToImage",
-            author = "author"
+            isFavourite = false,
+            author= "Associated Press",
+            title =  "SpaceX tourist trip to orbit ends with splashdown off Florida coast - Fox Business",
+            description =  "Four space tourists safely ended their trailblazing trip to orbit Saturday with a splashdown in the Atlantic off the Florida coast.",
+            url  =  "https://www.foxbusiness.com/technology/spacex-tourist-trip-orbit-splashdown-florida-coast",
+            urlToImage  =  "https://a57.foxnews.com/live.foxnews.com/60b090de5e744bd584c758dc700f7803/us-east-1/694940094001/0/0/playlist.m3u8?ve=1&tl=1",
+            publishedAt = "2021-09-19T07:10:12Z",
+            content = "CAPE CANAVERAL, Fla. — Four space tourists safely ended their trailblazing trip to orbit Saturday with a splashdown in the Atlantic off the Florida coast.\r\nTheir SpaceX capsule parachuted into the oc… [+5576 chars]"
         ),
         Article(
             id = 2,
-            title = "muraino",
-            description = "http",
-            url = "snacks",
-            publishedAt="publishedAt",
-            content="content",
-            urlToImage="urlToImage",
-            author = "author"
+            isFavourite = false,
+            author= "Ade Press",
+            title =  "SpaceX tourist trip to orbit ends with splashdown off Florida coast - Fox Business",
+            description =  "Four space tourists safely ended their trailblazing trip to orbit Saturday with a splashdown in the Atlantic off the Florida coast.",
+            url  =  "https://www.foxbusiness.com/technology/spacex-tourist-trip-orbit-splashdown-florida-coast",
+            urlToImage  =  "https://a57.foxnews.com/live.foxnews.com/60b090de5e744bd584c758dc700f7803/us-east-1/694940094001/0/0/playlist.m3u8?ve=1&tl=1",
+            publishedAt = "2021-09-19T07:10:12Z",
+            content = "CAPE CANAVERAL, Fla. — Four space tourists safely ended their trailblazing trip to orbit Saturday with a splashdown in the Atlantic off the Florida coast.\r\nTheir SpaceX capsule parachuted into the oc… [+5576 chars]"
+        ),
+        Article(
+            id = 3,
+            isFavourite = true,
+            author= "Press Press",
+            title =  "SpaceX tourist trip to orbit ends with splashdown off Florida coast - Fox Business",
+            description =  "Four space tourists safely ended their trailblazing trip to orbit Saturday with a splashdown in the Atlantic off the Florida coast.",
+            url  =  "https://www.foxbusiness.com/technology/spacex-tourist-trip-orbit-splashdown-florida-coast",
+            urlToImage  =  "https://a57.foxnews.com/live.foxnews.com/60b090de5e744bd584c758dc700f7803/us-east-1/694940094001/0/0/playlist.m3u8?ve=1&tl=1",
+            publishedAt = "2021-09-19T07:10:12Z",
+            content = "CAPE CANAVERAL, Fla. — Four space tourists safely ended their trailblazing trip to orbit Saturday with a splashdown in the Atlantic off the Florida coast.\r\nTheir SpaceX capsule parachuted into the oc… [+5576 chars]"
         )
+
+
+
 
     )
 }
