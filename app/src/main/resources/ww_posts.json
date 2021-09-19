@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Summer Grilling",
+    "image": "/images/1033/dynamic/foodandrecipes/2015/07/TANDORI_GRILLED_SHRIMP_1053_800x800.jpg",
+    "filter": "[\\\"contentTags.food_cooking method.tags:Grilling\\\"]"
+  },
+  {
+    "filter": "",
+    "title": "Latest",
+    "image": "/images/1033/dynamic/foodandrecipes/2013/09/MediterraneanBeanSalad_1187_600.jpg"
+  },
+  {
+    "filter": "[\\\"contentTags.food_other.tags:Quick & Easy\\\"]",
+    "title": "Quick & Easy",
+    "image": "/images/1033/dynamic/foodandrecipes/2014/07/BeanCheeseHotDogs_052_600.jpg"
+  },
+  {
+    "title": "No-Cook",
+    "image": "/images/1033/dynamic/foodandrecipes/2015/08/LemonyBeetHummus_052_800x800.jpg",
+    "filter": "[\\\"contentTags.food_cooking method.tags:No-Cook\\\"]"
+  },
+  {
+    "title": "Family-Friendly",
+    "filter": "[\\\"contentTags.food_other.tags:Family-Friendly\\\"]",
+    "image": "/images/1033/dynamic/foodandrecipes/2015/08/TurkeyTacoCups_259_600x600.jpg"
+  },
+  {
+    "title": "Seasonal",
+    "image": "/images/1033/dynamic/foodandrecipes/2011/12/HCO_LemonDillGreekChickenSalad_178_600.jpg",
+    "filter": "[\\\"contentTags.food_season.tags:Summer\\\"], [\\\"contentTags.food_season.tags:Spring\\\"]"
+  },
+  {
+    "image": "/images/1033/dynamic/foodandrecipes/2015/03/MA15_Chili_Vegetarian_0104_rt_800x800.jpg",
+    "filter": "[\\\"contentTags.food_cuisines.tags:American\\\"]",
+    "title": "American"
+  },
+  {
+    "filter": "[\\\"contentTags.food_cuisines.tags:Italian\\\"]",
+    "image": "/images/1033/dynamic/foodandrecipes/2014/06/FetaStuffedCherryTomatoes_267_600.jpg",
+    "title": "Italian"
+  }
+]
